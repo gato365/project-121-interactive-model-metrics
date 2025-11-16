@@ -1,0 +1,163 @@
+:root {
+    --primary-color: #2c3e50; /* Dark Blue/Grey */
+    --accent-color: #3498db; /* Bright Blue */
+    --light-bg: #ecf0f1; /* Light Grey */
+    --hover-bg: #d4e6f1; /* Lighter Accent */
+    --font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0 0 5px 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* --- Metric Container --- */
+.metric {
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #bdc3c7;
+}
+
+.metric-header {
+    padding: 15px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.metric-header:hover {
+    background-color: #2980b9;
+}
+
+.metric-header span {
+    font-size: 1.8em;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.metric.active .metric-header span {
+    transform: rotate(90deg);
+}
+
+/* --- Aspect Buttons --- */
+.aspect-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    background-color: #f7f9fb;
+    border-bottom: 1px solid #ecf0f1;
+    max-height: 0; /* Smooth transition setup */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.metric.active .aspect-buttons {
+    max-height: 200px; /* Sufficient height for smooth opening */
+    padding: 15px 20px;
+}
+
+.aspect-button {
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid var(--accent-color);
+    padding: 8px 15px;
+    margin: 5px 10px 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.aspect-button:hover {
+    background-color: var(--hover-bg);
+}
+
+.aspect-button.active {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Content Display Area --- */
+.aspect-content {
+    padding: 0 20px;
+    max-height: 0; /* Smooth transition setup */
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth cubic transition */
+}
+
+.metric.active .aspect-content.visible {
+    padding: 20px;
+    max-height: 500px; /* Sufficient height for smooth content display */
+    opacity: 1;
+}
+
+.content-item {
+    padding: 15px;
+    border-left: 4px solid var(--accent-color);
+    margin-bottom: 10px;
+    background-color: #fcfcfc;
+    border-radius: 4px;
+}
+
+.content-item strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+/* KaTeX Styling */
+.katex-display {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #bdc3c7;
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
